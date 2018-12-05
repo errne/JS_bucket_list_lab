@@ -40,6 +40,17 @@ const createRouter = function (collection) {
     });
   });
 
+  router.post('/', (req, res) => {
+    const itemData = req.body;
+    collection
+    .insertOne(itemData)
+    .then(() => collection.find().toArray())
+    .then((docs) => res.json(docs))
+    .catch((err) => {
+      res.status(500);
+      res.json({status: 500, error: err});
+    });
+  })
 
 
   return router;
