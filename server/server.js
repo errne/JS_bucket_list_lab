@@ -19,6 +19,7 @@ MongoClient.connect('mongodb://localhost:27017')
   const bucketRouter = createRouter(itemCollection);
   app.use('/api/bucketlist', bucketRouter);
 })
+.catch(console.err);
 
 app.listen(3000, function () {
   console.log('Listening on port 3000');
