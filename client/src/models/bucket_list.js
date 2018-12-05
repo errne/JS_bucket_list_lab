@@ -9,10 +9,9 @@ const BucketList = function (url) {
 BucketList.prototype.bindEvents = function () {
   PubSub.subscribe('ItemFormView:new-goal', (event) => {
     const itemInfo = event.detail;
-    console.log(itemInfo);
     this.request.post(itemInfo)
     .then((res) => {
-      console.log(res);
+      PubSub.publish("BucketList:data-loaded",res);
     })
   });
 };

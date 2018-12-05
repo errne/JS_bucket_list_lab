@@ -1,4 +1,35 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  text-size:16px;
+  font-size: 1.5rem;
+}
+
 body {
-  background: linear-gradient(to right, #373b44, #4286f4);
-  color: white;
+  background: linear-gradient(to left, #373b44, #4286f4);
+  color: black;
+  font-family: 'Black And White Picture', sans-serif;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+.bucketList {
+  display:flex;
+  flex-direction: column;
+}
+
+.goal {
+  display: grid;
+  grid-template-columns: 8fr 2fr;
+  grid-auto-flow: row;
 }
