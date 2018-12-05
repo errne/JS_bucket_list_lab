@@ -50,8 +50,23 @@ const createRouter = function (collection) {
       res.status(500);
       res.json({status: 500, error: err});
     });
-  })
+  });
 
+  router.put('/:id', (req, res) => {
+    const id = req.params.id;
+    const itemData = req.body;
+    collection
+    .update(
+      { _id: ObjectID(id) },
+      { $set: itemData }
+    )
+    .then(() => collection.find().toArray())
+    .then((docs) => res.json(docs))
+    .catch((err) => {
+      res.status(500);
+      res.json({status: 500, error: err});
+    });
+  });
 
   return router;
 }
